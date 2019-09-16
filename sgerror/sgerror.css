@@ -1,0 +1,81 @@
+/*
+Geral
+*/
+body {
+    font-family: "Open Sans Condensed", Helvetica, Arial, sans-serif;
+    color: #4d4d4d;
+}
+h1, h2, h3 {
+    margin: 0;
+    font-family: "Open Sans Condensed", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+/*
+Navegação
+*/
+nav{
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    border-color: #025511;
+    background-color: #025511;
+}
+nav img{
+    width: 30vh;
+    border: 0;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+nav ul li{
+    text-align: center;
+    width: 100%
+}
+nav ul li a {
+    display: inline-block;
+    padding: 10px 0;
+    width: 100%;
+    text-decoration: none;
+    color: #f1f1f1;
+}
+/*
+Cabeçalho
+*/
+
+header{
+    background-image: url('../imagens/fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+header p{
+    margin-bottom: 2em;
+}
+/*
+
+
+/*Footer*/
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #00420c;
+    color: white;
+}
+footer h3{
+    padding: 10px;
+    font-size: 0.8em;
+    font-weight: 100;
+}
