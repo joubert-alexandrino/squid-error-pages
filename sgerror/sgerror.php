@@ -155,7 +155,7 @@ function get_error_page($er_code_id, $err_msg='') {
 	<?php if ($config['installedpackages']['squidguarddefault']['config'][0]['deniedmessage']): ?>
             <h1>Requisição não autorizada<br><span class="fonte-vermelha"><?php echo htmlspecialchars($err_code[$er_code_id]); ?></span></h1>
 	<?php else: ?>
-	        <h1>Request denied by <?= $g['product_name'] ?> proxy: <?= htmlspecialchars($err_code[$er_code_id]) ?></h1>
+            <h1>Requisição não autorizada<br><span class="fonte-vermelha"><?= $g['product_name'] ?> proxy: <?= htmlspecialchars($err_code[$er_code_id]) ?></span></h1>
 	<?php endif; ?>        
             <h2>O recurso que você está tentando acessar é proibido pela Política de Segurança da Informação do Ifes. Caso haja algo de erro entre em contato com a Coordenadoria de Tecnologia da Informação do Campus Viana (<a href="mailto:suporte.va@ifes.edu.br">suporte.va@ifes.edu.br</a>). Os dados de acesso podem ser vistos abaixo.</h2>            
 	<?php if ($err_msg): ?>		
