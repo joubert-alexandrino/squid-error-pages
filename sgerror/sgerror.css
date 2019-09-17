@@ -10,7 +10,9 @@ h1, h2, h3 {
     font-family: "Open Sans Condensed", Helvetica, Arial, sans-serif;
     font-weight: 700;
 }
-
+.fonte-vermelha{
+    color: red;
+}
 /*
 Navegação
 */
@@ -21,61 +23,57 @@ nav{
     border-color: #025511;
     background-color: #025511;
 }
+nav a{
+    text-decoration: none;
+}
 nav img{
     width: 30vh;
     border: 0;
-}
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-nav ul li{
-    text-align: center;
-    width: 100%
-}
-nav ul li a {
-    display: inline-block;
-    padding: 10px 0;
-    width: 100%;
-    text-decoration: none;
-    color: #f1f1f1;
 }
 /*
 Cabeçalho
 */
 
-header{
-    background-image: url('../imagens/fundo.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;    
+header{    
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    padding: 20px;
+    text-align: center
 }
-header p{
-    margin-bottom: 2em;
+header h1{
+    font-size: 1.8em;    
+    padding: 15px;
+    margin: 20px 0 20px 0;
+    line-height: 1.4em;
 }
-/*
+header h2{    
+    padding: 15px;
+    font-size: 1.3em;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+    font-weight: 500;
+    line-height: 1.4em;
+    text-align: justify;
+}
+header p{    
+    
+    margin: 0;
+    font-size: 1.0em;
+        line-height: 2.0em;
 
-
+}
 /*Footer*/
-
 footer{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: #00420c;
+    align-items: center;    
+    background-color: #025511;    
     color: white;
+    margin-top: 20px;
 }
 footer h3{
     padding: 10px;
-    font-size: 0.8em;
-    font-weight: 100;
+    font-size: 0.9em;
+    font-weight: 500;
+    
 }

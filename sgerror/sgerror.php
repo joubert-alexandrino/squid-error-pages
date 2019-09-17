@@ -139,47 +139,56 @@ function get_error_page($er_code_id, $err_msg='') {
 	header("HTTP/1.1 " . $err_code[$er_code_id]);
 
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>squidGuard Error page</title>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="sgerror.css">
 	</head>
 	<body>
+	    <nav>
+            <a href="http://viana.ifes.edu.br"><img src="logo-ifes-viana.png" alt="Logomarca Ifes Campus Viana"></a>            
+        </nav>
+        <header>
 	<?php if ($config['installedpackages']['squidguarddefault']['config'][0]['deniedmessage']): ?>
-		<h3><?= $config['installedpackages']['squidguarddefault']['config'][0]['deniedmessage'] ?>: <?= htmlspecialchars($err_code[$er_code_id]) ?></h3>;
+            <h1>Requisição não autorizada<br><span class="fonte-vermelha"><?php echo htmlspecialchars($err_code[$er_code_id]); ?></span></h1>
 	<?php else: ?>
-		<h3>Request denied by <?= $g['product_name'] ?> proxy: <?= htmlspecialchars($err_code[$er_code_id]) ?></h3>
+	        <h1>Request denied by <?= $g['product_name'] ?> proxy: <?= htmlspecialchars($err_code[$er_code_id]) ?></h1>
+	<?php endif; ?>        
+            <h2>O recurso que você está tentando acessar é proibido pela Política de Segurança da Informação do Ifes. Caso haja algo de erro entre em contato com a Coordenadoria de Tecnologia da Informação do Campus Viana (<a href="mailto:suporte.va@ifes.edu.br">suporte.va@ifes.edu.br</a>). Os dados de acesso podem ser vistos abaixo.</h2>            
+	<?php if ($err_msg): ?>		
+		    <p><strong>Mensagem de Erro Adicional:&nbsp;</strong><?= htmlspecialchars($err_msg) ?></p>
+	<?php endif; ?>
+	
+	<?php if ($cl['u']): ?>		
+            <p><strong>URL:&nbsp;</strong><span class="fonte-vermelha"><?= htmlspecialchars($cl['u']) ?></span></p>
+	<?php endif; ?>
+		
+	<?php if ($cl['a']): ?>		
+            <p><strong>IP do Host:&nbsp;</strong><?= htmlspecialchars($cl['a']) ?></p>
 	<?php endif; ?>
 
-	<?php if ($err_msg): ?>
-		<b>Reason:</b> <?= htmlspecialchars($err_msg) ?>
+	<?php if ($cl['n']): ?>		
+		    <p><strong>Nome do Host:&nbsp;</strong><?= htmlspecialchars($cl['n']) ?></p>
 	<?php endif; ?>
 
-		<hr size="1" noshade>
-	<?php if ($cl['a']): ?>
-		<b> Client address: </b> <?= htmlspecialchars($cl['a']) ?><br/>
+	<?php if ($cl['i']): ?>		
+		    <p><strong>Usuário:&nbsp;</strong><?= htmlspecialchars($cl['i']) ?></p>
 	<?php endif; ?>
 
-	<?php if ($cl['n']): ?>
-		<b> Client name:    </b> <?= htmlspecialchars($cl['n']) ?><br/>
+	<?php if ($cl['s']): ?>		
+		    <p><strong>Política de Acesso Aplicada:&nbsp;</strong><?= htmlspecialchars($cl['s']) ?></p>
 	<?php endif; ?>
 
-	<?php if ($cl['i']): ?>
-		<b> Client user:    </b> <?= htmlspecialchars($cl['i']) ?><br/>
+	<?php if ($cl['t']): ?>		
+            <p><strong>Filtro de Acesso Aplicado:&nbsp;</strong><?= htmlspecialchars($cl['t']) ?></p>
 	<?php endif; ?>
-
-	<?php if ($cl['s']): ?>
-		<b> Client group:   </b> <?= htmlspecialchars($cl['s']) ?><br/>
-	<?php endif; ?>
-
-	<?php if ($cl['t']): ?>
-		<b> Target group:   </b> <?= htmlspecialchars($cl['t']) ?><br/>
-	<?php endif; ?>
-
-	<?php if ($cl['u']): ?>
-		<b> URL:            </b> <?= htmlspecialchars($cl['u']) ?><br/>
-	<?php endif; ?>
-
-		<hr size="1" noshade>
+        </header>
+		<footer>
+            <h3><strong>Administrador por:</strong> Coordenadoria de Tecnologia da Informação do Ifes Campus Viana</h3>
+        </footer>		
 	</body>
 </html>
 <?php
